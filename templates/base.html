@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Materialize Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='assets/styles/style.css') }}"
+    />
+
+    <title>Cocktail Companion</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="z-depth-5">
+        <div class="nav-wrapper container">
+          <a href="{{ url_for('index') }}"
+            ><img
+              src="{{ url_for('static', filename='assets/images/ccLogo.png') }}"
+              alt="Cocktail Companion Logo"
+              id="navLogo"
+              class="waves-effect waves-light"
+          /></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+              <a href="{{ url_for('index') }}" class="">Home</a>
+            </li>
+            <li>
+              <a href="{{ url_for('library') }}" class="">Library</a>
+            </li>
+            <li>
+              <a
+                class="waves-effect waves-light btn pulse"
+                href="{{ url_for('signup') }}"
+                ><i class="material-icons left">local_bar</i>Sign Up</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('library') }}">Library</a></li>
+        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+      </ul>
+    </header>
+
+    <section class="infomodal">
+      <!-- Modal Pop Up window -->
+      <div id="modal3" class="modal">
+        <div class="modal-content">
+          <h4 id="info-modal-heading">Link Disabled</h4>
+          <p id="info-modal-content">Sorry, all links are currently disabled</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="modal-close waves-effect btn-flat">Close</a>
+        </div>
+      </div>
+    </section>
+    <!-- toggle modal thing -->
+    <!-- <a href="#" onclick="toggleModal()">Click Me</a> -->
+
+    {% block content %} {% endblock %}
+    <!-- jQuery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

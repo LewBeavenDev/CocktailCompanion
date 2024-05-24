@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% block content %}
+<section id="hero">
+  <div id="heroLogoWrapper">
+    <img
+      id="heroLogo"
+      class="responsive-img"
+      src="{{ url_for('static', filename='assets/images/ccLogo.png') }}"
+      alt="Cocktail Companion Logo"
+    />
+  </div>
+</section>
+<section class="blueBanner">
+  <div class="center-align container">
+    <h1>Welcome to the Cocktail Companion!</h1>
+    <h5>Design, view, edit and share your creative tipples!</h5>
+    <a class="waves-effect waves-light btn pulse"
+      ><i class="material-icons left">local_bar</i>Sign Up</a
+    >
+  </div>
+</section>
+<section id="infoSection">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m6 l6 container">
+        <h3 class="align-left">
+          About Us <i class="material-icons medium">tag_faces</i>
+        </h3>
+        <div class="divider" id="infoDivider"></div>
+        <p>
+          My name is Lewis Beaven and I am a student web developer. I decided I
+          wanted to learn new skills after spending the last few years in bars
+          and restaurants. This is a culmination of the two worlds I suppose!
+        </p>
+      </div>
+      <div class="col s12 m6 l6 center-align container">
+        <img
+          id="LewBeavenBar"
+          class="responsive-img z-depth-5"
+          src="{{ url_for('static', filename='assets/images/LewBeavenBar.jpg')}}"
+          alt="LewBeavenDev as a bartender"
+        />
+      </div>
+    </div>
+    <!-- <div class="divider"></div> -->
+    <div class="row">
+      <div class="col s12 push-m6 m6 push-l6 l6 container">
+        <h3 class="right-align">
+          Our Aim <i class="material-icons medium right">directions_run</i>
+        </h3>
+        <div class="divider" id="infoDivider"></div>
+        <p>
+          After working in the bar and restaurant industry for many years, we
+          realised there is a distinct lack of tools available to help in the
+          design and storage of cocktail ideas and specs. This is our attempt at
+          fixing that problem! You can add, edit, view and share your creations
+          all from one handy page!
+        </p>
+      </div>
+      <div class="col s12 pull-m6 m6 pull-l6 l6 center-align container">
+        <img
+          id="LewBeavenCocktail"
+          class="responsive-img z-depth-5"
+          src="{{ url_for('static', filename='assets/images/cocktailLewis.png')}}"
+          alt="LewBeavenDev holding a cocktail"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<section>{% include "footer.html" %}</section>
+{% endblock %}

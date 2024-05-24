@@ -1,0 +1,95 @@
+{% extends "base.html" %} {% block content %}
+<section class="blueBanner">
+    <div class="center-align container">
+        <h1>Welcome to the Cocktail Library!</h1>
+        <h5>In this section is a library of clasic cocktails ready for you to view. You can edit and change them to your
+            will or design and add your own!</h5>
+    </div>
+</section>
+<section class="backgroundCream">
+    <div class="container grid-container cardLibrary">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="../static/assets/images/oldFashioned.jpg">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Old Fashioned<i
+                        class="material-icons right">more_vert</i></span>
+                <p><a href="#">Edit Cocktail</a></p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Old Fashioned<i
+                        class="material-icons right">close</i></span>
+                <p>Glass: Old Fashioned</p>
+                <p>Ice: Block</p>
+                <p>Method: Stir and Strain</p>
+                <p>Ingredients: <ul>
+                        <li>60ml Bourbon</li>
+                        <li>5ml Sugar Syrup 2:1</li>
+                        <li>2 Dash Angustora Bitters</li>
+                    </ul>
+                </p>
+                <p>Garnish: Orange Peel</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator cardImage" src="../static/assets/images/margarita.jpg">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Margarita<i
+                        class="material-icons right">more_vert</i></span>
+                <p><a href="#">Edit Cocktail</a></p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Margarita<i
+                        class="material-icons right">close</i></span>
+                <p>Glass: Cocktail</p>
+                <p>Ice: None</p>
+                <p>Method: Shake and Double Strain</p>
+                <p>Ingredients: <ul>
+                        <li>60ml Tequila</li>
+                        <li>25ml Lime Juice</li>
+                        <li>25ml Cointreau</li>
+                        <li>5ml Sugar Syrup 2:1</li>
+                    </ul>
+                </p>
+                <p>Garnish: Sea Salt Rim</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator cardImage" src="../static/assets/images/mojito.jpg">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Mojito<i
+                        class="material-icons right">more_vert</i></span>
+                <p><a href="#">Edit Cocktail</a></p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Mojito<i class="material-icons right">close</i></span>
+                <p>Glass: Hi Ball</p>
+                <p>Ice: Cubed</p>
+                <p>Method:
+                    <ul>
+                        <li>Add Mint to Glass</li>
+                        <li>Shake and Double Strain</li>
+                        <li>Top and Pull Through</li>
+                    </ul>
+                </p>
+                <p>Ingredients: <ul>
+                        <li>8 Mint Leaves</li>
+                        <li>50ml White Rum</li>
+                        <li>25ml Lime Juice</li>
+                        <li>15ml Sugar Syrup 2:1</li>
+                        <li>Top Soda Water</li>
+                    </ul>
+                </p>
+                <p>Garnish: Mint Sprig and Straw</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>{% include "footer.html" %}</section>
+{% endblock %}

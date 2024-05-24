@@ -1,0 +1,29 @@
+<footer>
+  <div class="container">
+    <div class="row valign-wrapper">
+      <div class="col s6">
+        <a href="{{ url_for('index') }}"
+          ><img
+            src="{{ url_for('static', filename='assets/images/ccLogo.png') }}"
+            alt="Cocktail Companion Logo"
+            id="navLogo"
+            class="waves-effect waves-light"
+        /></a>
+      </div>
+      <div class="col s6 right-align">
+        <a
+          href="{{ url_for('signup') }}"
+          class="waves-effect waves-light btn pulse"
+          ><i class="material-icons left">local_bar</i>Sign Up</a
+        >
+      </div>
+    </div>
+    <div class="divider" id="footerDivider"></div>
+    <div class="row valign-wrapper">
+      <div class="col s12 center-align">
+        Copyright LewBeavenDev 2024
+        <i class="material-icons tiny">copyright</i>
+      </div>
+    </div>
+  </div>
+</footer>

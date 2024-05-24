@@ -1,0 +1,160 @@
+/*--------------------------------------------------- GENERAL */
+
+h1 {
+  margin: 0;
+}
+
+.btn {
+  background-color: rgba(21, 97, 109, 1s);
+}
+
+.row {
+  margin: 0 auto;
+}
+
+.divider {
+  background-color: rgba(0, 21, 36, 1);
+}
+
+.backgroundCream {
+  background-color: rgba(255, 236, 209, 1);
+}
+
+#submit-btn {
+  color: white;
+}
+
+/*--------------------------------------------------- NAV */
+
+nav {
+  background-color: rgba(255, 125, 0, 1);
+}
+
+#navLogo {
+  height: 6rem;
+  width: 6rem;
+  transform: translateY(-18px);
+}
+
+/*--------------------------------------------------- HERO */
+
+#hero {
+  position: relative;
+  height: 800px;
+  width: 100%;
+  overflow: hidden;
+  background: url(../images/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  /* background-position-y: -700px; */
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#heroLogoWrapper {
+  height: 70rem;
+  width: 70rem;
+  background-color: rgba(120, 41, 15, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  #heroLogoWrapper {
+    height: 40rem;
+    /* Adjust height for smaller screens */
+    width: 40rem;
+    /* Adjust width for smaller screens */
+    min-width: 40rem;
+  }
+
+  #heroLogo {
+    overflow: hidden;
+  }
+}
+
+/*--------------------------------------------------- WELCOME */
+
+.blueBanner {
+  background-color: rgba(21, 97, 109, 1);
+  color: white;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  z-index: 10;
+}
+
+#welcomeSection h1 {
+  margin-bottom: 2rem;
+}
+
+#welcomeSection h5 {
+  margin-bottom: 2rem;
+}
+
+#welcomeSection a {
+  padding: 0 1rem;
+}
+
+#infoSection {
+  background-color: rgba(255, 236, 209, 1);
+}
+
+#LewBeavenBar {
+  size: fill;
+  height: 15rem;
+  width: 15rem;
+  margin: 2rem 0;
+  border-radius: 100%;
+}
+
+#LewBeavenCocktail {
+  size: fill;
+  height: 15rem;
+  width: 15rem;
+  margin: 2rem 0;
+  border-radius: 100%;
+}
+
+/*--------------------------------------------------- CARDS */
+.cardLibrary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 300px;
+  width: 300px;
+}
+
+.card-image {
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+/*--------------------------------------------------- SIGNUP FORM */
+
+#signupForm {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/*--------------------------------------------------- FOOTER */
+
+footer {
+  background-color: rgba(0, 21, 36, 1);
+  color: white;
+  padding: 2rem 0 0.5rem 0;
+}
+
+#footerDivider {
+  margin-bottom: 10px;
+}
