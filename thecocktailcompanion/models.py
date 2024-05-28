@@ -10,3 +10,6 @@ class Drinks(db.Model):
     drink_method = db.Column(db.String(100), nullable=False)
     drink_ingredients = db.Column(db.Text, nullable=False)
     drink_garnish = db.Column(db.String(25), nullable=True)
+    
+    def __repr__(self):
+        return f'<Drink {self.name}>'
