@@ -1,0 +1,91 @@
+{% extends "base.html" %} {% block content %}
+
+<section class="blueBanner">
+  <div class="center-align container">
+    <h1>Add Drink</h1>
+  </div>
+</section>
+
+<section class="backgroundCream">
+  <form class="col s12" method="POST" action="{{ url_for('add_drink') }}">
+    <div class="card-panel center-align">
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="drink_name"
+            name="drink_name"
+            minlength="3"
+            maxlength="25"
+            type="text"
+          />
+          <label for="drink_name">Drink Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="drink_ice"
+            name="drink_ice"
+            minlength="3"
+            maxlength="25"
+            type="text"
+          />
+          <label for="drink_ice">Ice</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="drink_glass"
+            name="drink_glass"
+            minlength="3"
+            maxlength="10"
+            type="text"
+          />
+          <label for="drink_glass">Glass</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="drink_method"
+            name="drink_method"
+            minlength="3"
+            maxlength="100"
+            type="text"
+          />
+          <label for="drink_method">Method</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="drink_ingredients" name="drink_ingredients" type="text" />
+          <label for="drink_ingredients">Ingredients</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="drink_garnish"
+            name="drink_garnish"
+            minlength="3"
+            maxlength="25"
+            type="text"
+          />
+          <label for="drink_garnish">Garnish</label>
+        </div>
+      </div>
+      <div class="row">
+        <button
+          class="btn waves-effect waves-light"
+          type="submit"
+          name="action"
+        >
+          Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
+{% endblock %}
