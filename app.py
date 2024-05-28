@@ -1,27 +1,13 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from thecocktailcompanion import app
 
-app = Flask(__name__, static_folder='static')
-
-
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-
-@app.route("/library")
-def library():
-    return render_template("library.html")
-
-
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")
-
+# Set default port if not provided in environment variables
+port = int(os.environ.get("PORT", 5000))
+host = os.environ.get("IP", "0.0.0.0")
 
 if __name__ == "__main__":
     app.run(
-        host=os.environ.get("IP", "0.0.0.0"),
-        port=int(os.environ.get("PORT", "5000")),
-        debug=True,
+        host=host,
+        port=port,
+        debug=True
     )
