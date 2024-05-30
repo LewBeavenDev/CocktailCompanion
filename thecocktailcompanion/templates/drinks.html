@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+<section class="blueBanner">
+  <div class="center-align container">
+    <h1>Welcome to the Cocktail Library!</h1>
+    <br />
+    <a class="waves-effect waves-light btn" href="{{ url_for('add_drink') }}"
+      ><i class="material-icons right">add_circle</i>Add Cocktail</a
+    >
+  </div>
+</section>
+<section class="backgroundCream">
+  <div class="container grid-container cardLibrary">
+    {% for drink in drinks %}
+    <div class="card">
+      <div class="card-content">
+        {% if drink.drink_image %}
+        <div class="card-image">
+          <img
+            class="activator"
+            src="{{ url_for('static', filename='uploads/' + drink.drink_image) }}"
+            alt="{{ drink.drink_name }}"
+          />
+        </div>
+        {% endif %}
+        <span class="card-title activator grey-text text-darken-4">
+          {{ drink.drink_name }}
+          <i class="material-icons right">more_vert</i>
+        </span>
+        <a href="#" class="btn-small">Edit</a>
+        <a href="#" class="btn-small red">Delete</a>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">
+          Old Fashioned
+          <i class="material-icons right">close</i>
+        </span>
+        <p>Glass: {{ drink.drink_glass }}</p>
+        <p>Ice: {{ drink.drink_ice }}</p>
+        <p>Method: {{ drink.drink_method }}</p>
+        <p>Ingredients: {{ drink.drink_ingredients }}</p>
+        <p>Garnish: {{ drink.drink_garnish }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<section>{% include "footer.html" %}</section>
+{% endblock %}

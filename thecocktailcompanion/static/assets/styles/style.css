@@ -138,6 +138,8 @@ nav {
   height: 200px;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 /*--------------------------------------------------- SIGNUP FORM */

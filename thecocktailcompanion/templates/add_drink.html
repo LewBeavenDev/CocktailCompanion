@@ -7,7 +7,12 @@
 </section>
 
 <section class="backgroundCream">
-  <form class="col s12" method="POST" action="{{ url_for('add_drink') }}">
+  <form
+    class="col s12"
+    method="POST"
+    action="{{ url_for('add_drink') }}"
+    enctype="multipart/form-data"
+  >
     <div class="card-panel center-align">
       <div class="row">
         <div class="input-field col s12">
@@ -19,6 +24,17 @@
             type="text"
           />
           <label for="drink_name">Drink Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="drink_image"
+            name="drink_image"
+            accept="image/*"
+            type="file"
+          />
+          <label for="drink_image">Drink Image:</label>
         </div>
       </div>
       <div class="row">
