@@ -71,3 +71,10 @@ def edit_drink(drink_id):
         return redirect(url_for("drinks"))    
     return render_template("edit_drink.html", drink=drink)
     
+    
+@app.route('/delete_drink/<int:drink_id>')
+def delete_drink(drink_id):
+    drink = Drink.query.get_or_404(drink_id) 
+    db.session.delete(drink)
+    db.session.commit()
+    return redirect(url_for("drinks"))

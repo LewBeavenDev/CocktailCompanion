@@ -43,7 +43,13 @@
           >Edit</a
         >
 
-        <a href="#" class="btn-small red">Delete</a>
+        <a
+          href="{{ url_for('delete_drink', drink_id=drink.id) }}"
+          class="btn-small red"
+          >Delete</a
+        >
+
+        <!--  -->
       </div>
     </div>
     {% endfor %}
