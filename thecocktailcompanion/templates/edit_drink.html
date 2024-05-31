@@ -2,7 +2,7 @@
 
 <section class="blueBanner">
   <div class="center-align container">
-    <h1>Add Drink</h1>
+    <h1>Edit Drink</h1>
   </div>
 </section>
 
@@ -10,7 +10,7 @@
   <form
     class="col s12"
     method="POST"
-    action="{{ url_for('add_drink') }}"
+    action="{{ url_for('edit_drink', drink_id=drink.id) }}"
     enctype="multipart/form-data"
   >
     <div class="card-panel center-align">
@@ -18,6 +18,7 @@
         <div class="input-field col s12">
           <input
             id="drink_name"
+            value="{{ drink.drink_name }}"
             name="drink_name"
             minlength="3"
             maxlength="25"
@@ -27,6 +28,15 @@
         </div>
       </div>
       <div class="row">
+        <div class="col s12">
+          {% if drink.drink_image %}
+          <img
+            src="{{ url_for('static', filename='uploads/' + drink.drink_image) }}"
+            alt="{{ drink.drink_name }}"
+            class="responsive-img"
+          />
+          {% endif %}
+        </div>
         <div class="input-field col s12">
           <input
             id="drink_image"
@@ -34,16 +44,17 @@
             accept="image/*"
             type="file"
           />
-          <label for="drink_image">Drink Image:</label>
+          <label for="drink_image">Upload New Drink Image:</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <input
             id="drink_ice"
+            value="{{ drink.drink_ice }}"
             name="drink_ice"
             minlength="3"
-            maxlength="255"
+            maxlength="25"
             type="text"
           />
           <label for="drink_ice">Ice</label>
@@ -53,9 +64,10 @@
         <div class="input-field col s12">
           <input
             id="drink_glass"
+            value="{{ drink.drink_glass }}"
             name="drink_glass"
             minlength="3"
-            maxlength="255"
+            maxlength="10"
             type="text"
           />
           <label for="drink_glass">Glass</label>
@@ -65,9 +77,10 @@
         <div class="input-field col s12">
           <input
             id="drink_method"
+            value="{{ drink.drink_method }}"
             name="drink_method"
             minlength="3"
-            maxlength="255"
+            maxlength="100"
             type="text"
           />
           <label for="drink_method">Method</label>
@@ -77,9 +90,8 @@
         <div class="input-field col s12">
           <input
             id="drink_ingredients"
+            value="{{ drink.drink_ingredients }}"
             name="drink_ingredients"
-            minlength="3"
-            maxlength="255"
             type="text"
           />
           <label for="drink_ingredients">Ingredients</label>
@@ -89,9 +101,10 @@
         <div class="input-field col s12">
           <input
             id="drink_garnish"
+            value="{{ drink.drink_garnish }}"
             name="drink_garnish"
             minlength="3"
-            maxlength="255"
+            maxlength="25"
             type="text"
           />
           <label for="drink_garnish">Garnish</label>

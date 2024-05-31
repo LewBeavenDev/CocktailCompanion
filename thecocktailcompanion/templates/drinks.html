@@ -26,8 +26,6 @@
           {{ drink.drink_name }}
           <i class="material-icons right">more_vert</i>
         </span>
-        <a href="#" class="btn-small">Edit</a>
-        <a href="#" class="btn-small red">Delete</a>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">
@@ -39,6 +37,13 @@
         <p>Method: {{ drink.drink_method }}</p>
         <p>Ingredients: {{ drink.drink_ingredients }}</p>
         <p>Garnish: {{ drink.drink_garnish }}</p>
+        <a
+          href="{{ url_for('edit_drink', drink_id=drink.id) }}"
+          class="btn-small"
+          >Edit</a
+        >
+
+        <a href="#" class="btn-small red">Delete</a>
       </div>
     </div>
     {% endfor %}

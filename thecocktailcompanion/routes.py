@@ -61,3 +61,13 @@ def add_drink():
 
     return render_template('add_drink.html')
 
+
+@app.route('/edit_drink/<int:drink_id>', methods=["GET", "POST"])
+def edit_drink(drink_id):
+    drink = Drink.query.get_or_404(drink_id)
+    if request.method == "POST":
+        drink.drink_name = request.form.get("drink_name")
+        db.session.commit()
+        return redirect(url_for("drinks"))    
+    return render_template("edit_drink.html", drink=drink)
+    
