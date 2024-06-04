@@ -3,7 +3,9 @@
   <div class="center-align container">
     <h1>Welcome to the Cocktail Library!</h1>
     <br />
-    <a class="waves-effect waves-light btn" href="{{ url_for('add_drink') }}"
+    <a
+      class="waves-effect waves-light btn"
+      href="{{ url_for('main.add_drink') }}"
       ><i class="material-icons right">add_circle</i>Add Cocktail</a
     >
   </div>
@@ -38,13 +40,13 @@
         <p>Ingredients: {{ drink.drink_ingredients }}</p>
         <p>Garnish: {{ drink.drink_garnish }}</p>
         <a
-          href="{{ url_for('edit_drink', drink_id=drink.id) }}"
+          href="{{ url_for('main.edit_drink', drink_id=drink.id) }}"
           class="btn-small"
           >Edit</a
         >
 
         <a
-          href="{{ url_for('delete_drink', drink_id=drink.id) }}"
+          href="{{ url_for('main.delete_drink', drink_id=drink.id) }}"
           class="btn-small red"
           >Delete</a
         >
