@@ -1,10 +1,9 @@
-from thecocktailcompanion import app
+from thecocktailcompanion import app, db
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
 import os
-from routes import main_blueprint
-
+from thecocktailcompanion import routes  # Import routes for blueprint
 
 app = Flask(__name__)
 secret_key = os.urandom(24)
@@ -22,8 +21,8 @@ login_manager.login_view = 'login'
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-app.register_blueprint(main_blueprint)
-
+# Register the blueprint after defining app and login manager
+app.register_blueprint(routes.main_blueprint)
 
 if __name__ == "__main__":
     app.run(
