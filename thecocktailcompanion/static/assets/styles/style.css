@@ -132,7 +132,6 @@ nav {
 .card {
   height: 300px;
   width: 300px;
-  border-radius: 10px;
 }
 
 .card-image {
@@ -141,21 +140,6 @@ nav {
   align-items: center;
   overflow: hidden;
   border-radius: 10px;
-}
-
-/*--------------------------------------------------- SIGNUP FORM */
-
-.modal {
-  width: 70%; /* Adjust width as needed */
-  max-height: 80%; /* Adjust max-height as needed */
-}
-
-.modal .modal-content {
-  overflow-y: auto; /* Enable scrolling if content overflows */
-}
-
-.modal .modal-footer {
-  text-align: right;
 }
 
 /*--------------------------------------------------- SIGNUP FORM */
