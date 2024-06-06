@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from thecocktailcompanion import db
@@ -9,14 +9,21 @@ import os
 
 main = Blueprint('main', __name__)
 
+def allowed_file(filename):
+    ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 @main.route('/')
 def home():
     return render_template('home.html')
 
 @main.route('/drinks')
 def drinks():
-    drinks = Drink.query.order_by(Drink.drink_name).all()
-    return render_template('drinks.html', drinks=drinks)
+    global_drinks = Drink.query.filter_by(is_global=True).all()
+    user_drinks = []
+    if current_user.is_authenticated:
+        user_drinks = Drink.query.filter_by(user_id=current_user.id, is_global=False).all()
+    return render_template('drinks.html', global_drinks=global_drinks, user_drinks=user_drinks)
 
 @main.route('/register', methods=['GET', 'POST'])
 def register():
@@ -46,14 +53,9 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash('You have been logged out...', 'Success')
+    flash('You have been logged out...', 'success')
     return redirect(url_for('main.login'))
 
-@main.route('/dashboard')
-@login_required
-def dashboard():
-    drinks = Drink.query.filter_by(user_id=current_user.id).all()
-    return render_template('dashboard.html', drinks=drinks)
 
 @main.route('/edit/<int:drink_id>', methods=['GET', 'POST'])
 @login_required
@@ -74,11 +76,11 @@ def delete_drink(drink_id):
     drink = Drink.query.get_or_404(drink_id)
     if drink.user_id != current_user.id:
         flash('You do not have permission to delete this drink', 'danger')
-        return redirect(url_for('main.dashboard'))
+        return redirect(url_for('main.drinks'))
     db.session.delete(drink)
     db.session.commit()
     flash('Drink has been deleted', 'success')
-    return redirect(url_for('main.dashboard'))
+    return redirect(url_for('main.drinks'))
 
 @main.route('/add_drink', methods=["GET", "POST"])
 @login_required
@@ -94,10 +96,11 @@ def add_drink():
         file = request.files['drink_image']
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
             file.save(file_path)
 
-            relative_file_path = filename
+            
+            relative_file_path = f'uploads/{filename}'
             new_drink = Drink(
                 drink_name=drink_name,
                 drink_glass=drink_glass,
@@ -106,7 +109,8 @@ def add_drink():
                 drink_ingredients=drink_ingredients,
                 drink_garnish=drink_garnish,
                 drink_image=relative_file_path,
-                user_id=current_user.id
+                user_id=current_user.id,
+                is_global=current_user.is_admin 
             )
             db.session.add(new_drink)
             db.session.commit()

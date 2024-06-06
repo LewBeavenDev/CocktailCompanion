@@ -2,7 +2,7 @@ $(function () {
   M.AutoInit();
 });
 
-function toggleModal() {
-  let instance = M.Modal.getInstance($("#modal3"));
-  instance.open();
-}
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll(".modal");
+  var instances = M.Modal.init(elems);
+});
