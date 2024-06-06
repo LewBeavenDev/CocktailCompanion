@@ -24,6 +24,10 @@ h1 {
   color: white;
 }
 
+.submit-btn {
+  color: white;
+}
+
 /*--------------------------------------------------- NAV */
 
 nav {
@@ -145,6 +149,13 @@ nav {
 /*--------------------------------------------------- SIGNUP FORM */
 
 #signupForm {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/*--------------------------------------------------- LOGIN FORM */
+
+#loginForm {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }

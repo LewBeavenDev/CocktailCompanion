@@ -37,7 +37,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and check_password_hash(user.password, form.password.data):
             login_user(user)
-            return redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.drinks'))
         else:
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', form=form)
@@ -46,6 +46,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+    flash('You have been logged out...', 'Success')
     return redirect(url_for('main.login'))
 
 @main.route('/dashboard')

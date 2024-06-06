@@ -37,11 +37,25 @@
             ><i class="material-icons">menu</i></a
           >
           <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {% if current_user.is_authenticated %}
             <li>
               <a href="{{ url_for('main.home') }}" class="">Home</a>
             </li>
             <li>
               <a href="{{ url_for('main.drinks') }}" class="">Library</a>
+            </li>
+            <li>
+              <a href="{{ url_for('main.logout') }}" class="">Log Out </a>
+            </li>
+            {% else %}
+            <li>
+              <a href="{{ url_for('main.home') }}" class="">Home</a>
+            </li>
+            <li>
+              <a href="{{ url_for('main.drinks') }}" class="">Library</a>
+            </li>
+            <li>
+              <a href="{{ url_for('main.login') }}" class="">Log In </a>
             </li>
             <li>
               <a
@@ -50,13 +64,21 @@
                 ><i class="material-icons left">local_bar</i>Sign Up</a
               >
             </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
       <ul class="sidenav" id="mobile-demo">
+        {% if current_user.is_authenticated %}
         <li><a href="{{ url_for('main.home') }}">home</a></li>
         <li><a href="{{ url_for('main.drinks') }}">Library</a></li>
+        <li><a href="{{ url_for('main.logout') }}">Log Out</a></li>
+        {% else %}
+        <li><a href="{{ url_for('main.home') }}">home</a></li>
+        <li><a href="{{ url_for('main.drinks') }}">Library</a></li>
+        <li><a href="{{ url_for('main.login') }}">Log In</a></li>
         <li><a href="{{ url_for('main.register') }}">Sign Up</a></li>
+        {% endif %}
       </ul>
     </header>
 
