@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block content %}
+<section class="blueBanner">
+  <div class="center-align container">
+    <h1>Sign Up With Us!</h1>
+    <h5>
+      By signing up with us you will be able to add and edit your own cocktail
+      ideas! All we need is a couple of details listed below!
+    </h5>
+  </div>
+</section>
+<section class="backgroundCream">
+  <div class="row container" id="signupForm">
+    <form action="{{ url_for('main.register') }}" method="post" class="col s12">
+      {{ form.hidden_tag() }}
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.username.label }} {{ form.username(class="validate") }} {% if
+          form.username.errors %}
+          <span class="error">{{ form.username.errors[0] }}</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.password.label }} {{ form.password(class="validate") }} {% if
+          form.password.errors %}
+          <span class="error">{{ form.password.errors[0] }}</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.confirm_password.label }} {{
+          form.confirm_password(class="validate") }} {% if
+          form.confirm_password.errors %}
+          <span class="error">{{ form.confirm_password.errors[0] }}</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col s12 center-align">
+        {{ form.submit(class="waves-effect waves-light btn pulse") }}
+      </div>
+    </form>
+  </div>
+</section>
+<section>{% include "footer.html" %}</section>
+{% endblock %}

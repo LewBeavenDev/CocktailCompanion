@@ -46,7 +46,7 @@
             <li>
               <a
                 class="waves-effect waves-light btn pulse"
-                href="{{ url_for('main.login') }}"
+                href="{{ url_for('main.register') }}"
                 ><i class="material-icons left">local_bar</i>Sign Up</a
               >
             </li>
@@ -56,24 +56,9 @@
       <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('main.home') }}">home</a></li>
         <li><a href="{{ url_for('main.drinks') }}">Library</a></li>
-        <li><a href="{{ url_for('main.login') }}">Sign Up</a></li>
+        <li><a href="{{ url_for('main.register') }}">Sign Up</a></li>
       </ul>
     </header>
-
-    <section class="infomodal">
-      <!-- Modal Pop Up window -->
-      <div id="modal3" class="modal">
-        <div class="modal-content">
-          <h4 id="info-modal-heading">Link Disabled</h4>
-          <p id="info-modal-content">Sorry, all links are currently disabled</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="modal-close waves-effect btn-flat">Close</a>
-        </div>
-      </div>
-    </section>
-    <!-- toggle modal thing -->
-    <!-- <a href="#" onclick="toggleModal()">Click Me</a> -->
 
     {% block content %} {% endblock %}
     <!-- jQuery -->

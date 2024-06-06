@@ -17,7 +17,7 @@ def create_app():
     login_manager.init_app(app)
     login_manager.login_view = 'main.login'
 
-    from .models import User  # Ensure this import is here for user_loader
+    from .models import User 
 
     @login_manager.user_loader
     def load_user(user_id):
