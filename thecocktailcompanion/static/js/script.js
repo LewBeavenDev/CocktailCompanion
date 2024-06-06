@@ -3,6 +3,6 @@ $(function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  var elems = document.querySelectorAll(".modal");
-  var instances = M.Modal.init(elems);
+  let elems = document.querySelectorAll(".modal");
+  let instances = M.Modal.init(elems);
 });

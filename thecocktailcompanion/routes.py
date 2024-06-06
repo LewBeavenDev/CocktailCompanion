@@ -25,6 +25,7 @@ def drinks():
         user_drinks = Drink.query.filter_by(user_id=current_user.id, is_global=False).all()
     return render_template('drinks.html', global_drinks=global_drinks, user_drinks=user_drinks)
 
+
 @main.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
