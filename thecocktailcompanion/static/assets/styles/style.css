@@ -81,6 +81,13 @@ nav {
   #heroLogo {
     overflow: hidden;
   }
+
+  .cardLibrary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 /*--------------------------------------------------- WELCOME */

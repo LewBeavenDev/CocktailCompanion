@@ -70,7 +70,7 @@
       </nav>
       <ul class="sidenav" id="mobile-demo">
         {% if current_user.is_authenticated %}
-        <li><a href="{{ url_for('main.home') }}">home</a></li>
+        <li><a href="{{ url_for('main.home') }}">Home</a></li>
         <li><a href="{{ url_for('main.drinks') }}">Library</a></li>
         <li><a href="{{ url_for('main.logout') }}">Log Out</a></li>
         {% else %}
