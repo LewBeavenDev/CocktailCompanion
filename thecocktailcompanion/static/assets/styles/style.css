@@ -72,9 +72,7 @@ nav {
 @media screen and (max-width: 768px) {
   #heroLogoWrapper {
     height: 40rem;
-    /* Adjust height for smaller screens */
     width: 40rem;
-    /* Adjust width for smaller screens */
     min-width: 40rem;
   }
 
