@@ -64,7 +64,7 @@ def edit_drink(drink_id):
     drink = Drink.query.get_or_404(drink_id)
     if drink.user_id != current_user.id:
         flash('You do not have permission to edit this drink', 'danger')
-        return redirect(url_for('main.dashboard'))
+        return redirect(url_for('main.drinks'))
     if request.method == "POST":
         drink.drink_name = request.form.get("drink_name")
         db.session.commit()
