@@ -1,39 +1,63 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# [The Cocktail Companion]
 
-Welcome,
+## Contents
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+1.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+# <a name="summary"></a> Summary
 
-## Codeanywhere Reminders
+This site is a helper for all mixologists out there designing and creating their own drinks.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+It provides a database of classic cocktails with images and specs. Upon signing up and loging in it allows the users to create, read, update and delete their own cocktails.
 
-`python3 -m http.server`
+# <a name="UX"></a> UX
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## <a name="Strategy"></a> Strategy
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+### **New site user's goals:**
 
-`http_server`
+- As a new site user, I want to be able to browse Classic Cocktail recipe's.
+- As a new site user, I want to be guided to where to log in and create my own account.
+- As a new site user, I want to have a clear understanding of how the site works through good UI/UX design.
+- As a new site user, I want to easily navigate throughout the site.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### **Returning site user's goals:**
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- As a returning site user, I want to be able to Log in to my account.
+- As a returning site user, I want to be able to upload my own recipes.
+- As a returning site user, I want to be able to edit and delete those recipes.
+- As a returning site user, I want to be able to view my uploaded drinks without seeing the recipe so I can revise the specs within the app.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### **Site owners goals:**
 
-To log into the Heroku toolbelt CLI:
+- As the site owner, I want the pre supplied recipes shown to everyone but for users to only have access to their own recipes.
+- As the site owner, I want an admin account where I can periodically add new cocktails for everyone to see.
+- As the site owner, I want the site fully responsive as mixologists and bartenders only have access to their phones behind a bar.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## <a name="Scope"></a> Scope
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+**Functional Requirements:**
 
----
+#### For ease of use:
 
-Happy coding!
+- Navigation bar which is simple and easy to use.
+
+#### To ensure database CRUD functionality
+
+- Function to add recipe
+- Function to edit recipe
+- Function to delete recipe
+- For each recipe to only be viewed and editable by the owner.
+
+**Visual requirements**
+
+#### To ensure the users eyes are drawn to specific content:
+
+- Images and names of cocktails
+- Where to sign up/log in
+
+#### For usability
+
+- Cocktail specs to be hidden behind a button so users can use the site as flash cards to revise their cocktials.
+
+## <a name="Structure"></a> Structure
