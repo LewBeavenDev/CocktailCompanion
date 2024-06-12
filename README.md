@@ -61,3 +61,139 @@ It provides a database of classic cocktails with images and specs. Upon signing 
 - Cocktail specs to be hidden behind a button so users can use the site as flash cards to revise their cocktials.
 
 ## <a name="Structure"></a> Structure
+
+**Interactive design**
+
+- User friendly design and visually appealing interface to make users feel cofortable and likely to return to the site.
+- Responsive layout for use on either desktop or mobile.
+
+**Information Architecture:**
+
+- Nav bar at the top of the page
+- Footer locked to the bottom of the page.
+- Responsive nav bar that hides behind a burger icon on mobile.
+- Responsive and auto sized images upon upload.
+- All information is appropriate and relevant to the subject and is not misleading or hard to find.
+
+## <a name="Skeleton"></a> Skeleton
+
+![The Cocktail Companion Wireframe](/thecocktailcompanion/static/uploads/TheCCWireframe.png)
+
+## <a name="Surface"></a> Suface
+
+The intention of the web app is to be as user friendly as possible whilst having a branded look and feel to it.
+
+# <a name="Features"></a> Features
+
+## <a name="Existing Features"></a> Existing Features
+
+| Feature         | Details                                                                                                                       |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Sign Up         | The user can sign up to be able to add and edit thier own cocktail recipe's                                                   |
+| Log In          | The user can log in to their account to see their prior uploaded cocktails and edit them as they wish.                        |
+| Add cocktail    | This feature allows users to be directed to a form set up to build the card for their new cocktail                            |
+| Upload image    | Allows users to upload the image they would like above the title on their cocktails card in the library                       |
+| Edit cocktail   | This redirects the user to an edit form allowing them to adjust any recipe details they wish                                  |
+| Delete cocktail | This gives the user a pop up/ flash to check they want to delete the cocktail and remind them that this is a permanent action |
+
+## <a name="left-to"></a> Future implementations
+
+| Feature         | Details                                                           |
+| --------------- | ----------------------------------------------------------------- |
+| Search feature  | Allow users to search for coktails by recipe name                 |
+| Filter function | Allow users to filter their cocktails by ingredients or certain o |
+
+ther parameters
+Stock feature | Allow users to add a list of what ingredients they have to hand to see what cocktails they can build now and what is missing to make similar ones
+
+# <a name="tech"></a> Technologies used
+
+- Materialize - https://materializecss.com/
+- JavaScript
+- Google fonts - https://fonts.google.com/
+- www.validator.w3.org
+- http://www.css-validator.org/
+- Git
+- GitHub
+- Google Chrome
+- Mozilla Firefox
+- http://www.responsinator.com/
+- Chrome Dev Tools
+- Firefox Dev Tools
+- Python
+- Flask
+- PostgreSQl
+- Heroku
+- Jinja
+- Favicon.io
+- Figma
+
+# <a name="testing"></a> Testing
+
+INPUT TESTING AFTER DEPLOYMENT
+
+# <a name="deployment"></a> Deployment
+
+## <a name="github"></a> Github Pages
+
+1. Create a new repository or access an existing repository
+1. Click the green Gitpod button to launch the project in Gitpod
+1. Create an index.html file
+1. Add the file to the staging area using the git add Functional
+1. Commit the file using the git commit function, adding an appropriate commentary
+1. Push the file to GitHub using the git commit and git push functions
+1. Refresh your GitHub repository and click the 'Settings' tab
+1. Scroll to the GitHub Pages section and select a publishing source
+1. Click 'Save'
+1. Click the URL created within the Settings - GitHub Pages section
+
+**To clone the repository for local deployment:**
+
+1. On the main page of the repository, click the down arrow Code button
+1. Click the download icon under the relevant section to clone with either HTTPS, SSH or GitHub CLI
+1. In Git Bash, change the current directory to the location you want the directory to be stored
+1. Type git clone and then paste the URL you copied in step 2
+   1. An example for HTTPS: `git clone https://github.com/hollyford/recipe-nation`
+1. Press enter - that's it, your clone has been completed!
+
+**To fork the repository:**
+
+1. Navigate to the main page of the repository you wish to fork
+1. Click the Fork button on the top right hand side of the page
+
+## <a name="heroku"></a> Heroku
+
+### How to deploy to Heroku
+
+To deploy the app to Heroku from its [GitHub repository](https://github.com/hollyford/recipe-nation), the following steps were taken:
+
+1. From the GitPod terminal, create **requirements.txt** and **Procfile** using these commands:
+
+```console
+pip3 freeze --local > requirements.txt
+echo web: python app.py > Procfile
+```
+
+2. **Push** these files to GitHub
+3. **Log In** to [Heroku](https://id.heroku.com/login)
+4. Select **Create new app** from the dropdown in the Heroku dashboard
+5. Choose a unique name ('recipe-nation') for the app and the location nearest to you
+6. Go to the **Deploy** tab and under **Deployment method** choose GitHub
+7. In **Connect to GitHub** enter your GitHub repository details and once found, click **Connect**
+8. Go to the **Settings** tab and under **Config Vars** choose **Reveal Config Vars**
+9. Enter the following keys and values, which must match those in the env.py file created earlier:
+
+| **Key**              | **Value**                                                                                        |
+| :------------------- | :----------------------------------------------------------------------------------------------- |
+| IP                   | `0.0.0.0`                                                                                        |
+| PORT                 | `5000`                                                                                           |
+| SECRET_KEY           | `<app secret key>`                                                                               |
+| MONGO_URI            | mongodb+srv://root:r00tUser@cluster0.4zi37.mongodb.net/recipe_nation?retryWrites=true&w=majority |
+| MONGO_DBNAME         | `recipe_nation`                                                                                  |
+| S3_BUCKET            | `recipe-image-repo`                                                                              |
+| S3_ACCESS_KEY        | `<S3 key>`                                                                                       |
+| S3_SECRET_ACCESS_KEY | `<S3 secret key>`                                                                                |
+
+10. Go back to the **Deploy** tab and under **Automatic deploys** choose **Enable Automatic Deploys**
+11. Under **Manual deploy**, select **master** and click **Deploy Branch**
+12. Once the app has finished building, click **Open app** from the header row of the dashboard
