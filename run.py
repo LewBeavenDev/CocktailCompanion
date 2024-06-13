@@ -4,6 +4,9 @@ from werkzeug.security import generate_password_hash
 
 app = create_app()
 
+if __name__ == '__main__':
+    app.run(debug=True)
+
 with app.app_context():
     # Ensure the database is created
     db.create_all()
@@ -20,5 +23,4 @@ with app.app_context():
         db.session.add(admin_user)
         db.session.commit()
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
