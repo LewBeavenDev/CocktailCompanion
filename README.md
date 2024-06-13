@@ -196,4 +196,4 @@ echo web: python app.py > Procfile
 
 10. Go back to the **Deploy** tab and under **Automatic deploys** choose **Enable Automatic Deploys**
 11. Under **Manual deploy**, select **master** and click **Deploy Branch**
-12. Once the app has finished building, click **Open app** from the header row of the dashboard
+12. Once the app has finished building, click **Open app** from the header row of the dashboard.
