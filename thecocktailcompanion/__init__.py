@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+import os
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -9,7 +10,17 @@ login_manager = LoginManager()
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('config.Config')
+    app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+    
+    if os.environ.get("DEVELOPMENT") == "True":
+        app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+    else:
+        uri = os.environ.get("DATABASE_URL")
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri
+
+
 
     db.init_app(app)
     migrate.init_app(app, db)
