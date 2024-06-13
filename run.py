@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
 with app.app_context():
     # Ensure the database is created
-    db.create_all()
+    pass
 
     # Check if admin user exists
     admin_user = User.query.filter_by(username="admin").first()
