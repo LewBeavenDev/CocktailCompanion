@@ -13,7 +13,60 @@
 </section>
 <section class="backgroundCream">
   <div class="container grid-container cardLibrary">
-    {% for drink in global_drinks %}
+    {% for drink in user_drinks %}
+    <div class="card">
+      <div class="card-content">
+        {% if drink.drink_image %}
+        <div class="card-image">
+          <img
+            class="activator"
+            src="{{ url_for('static', filename=drink.drink_image) }}"
+            alt="{{ drink.drink_name }}"
+          />
+        </div>
+        {% endif %}
+        <span class="card-title activator grey-text text-darken-4">
+          {{ drink.drink_name }}
+          <i class="material-icons right">more_vert</i>
+        </span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">
+          {{ drink.drink_name }}
+          <i class="material-icons right">close</i>
+        </span>
+        <p>Glass: {{ drink.drink_glass }}</p>
+        <p>Ice: {{ drink.drink_ice }}</p>
+        <p>Method: {{ drink.drink_method }}</p>
+        <p>Ingredients: {{ drink.drink_ingredients }}</p>
+        <p>Garnish: {{ drink.drink_garnish }}</p>
+        <a
+          href="{{ url_for('main.edit_drink', drink_id=drink.id) }}"
+          class="btn-small"
+          >Edit</a
+        >
+        <a href="#modal-{{ drink.id }}" class="btn-small red modal-trigger"
+          >Delete</a
+        >
+        <!-- Modal -->
+        <div id="modal-{{ drink.id }}" class="modal">
+          <div class="modal-content">
+            <h5>Are you sure?</h5>
+            <p>This action cannot be undone</p>
+          </div>
+          <div class="modal-footer">
+            <form
+              method="POST"
+              action="{{ url_for('main.delete_drink', drink_id=drink.id) }}"
+            >
+              <button type="submit" class="btn red">Delete</button>
+            </form>
+            <a href="#!" class="modal-close btn green accent-4">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %} {% for drink in global_drinks %}
     <div class="card">
       <div class="card-content">
         {% if drink.drink_image %}
@@ -68,59 +121,6 @@
           </div>
         </div>
         {% endif %}
-      </div>
-    </div>
-    {% endfor %} {% for drink in user_drinks %}
-    <div class="card">
-      <div class="card-content">
-        {% if drink.drink_image %}
-        <div class="card-image">
-          <img
-            class="activator"
-            src="{{ url_for('static', filename=drink.drink_image) }}"
-            alt="{{ drink.drink_name }}"
-          />
-        </div>
-        {% endif %}
-        <span class="card-title activator grey-text text-darken-4">
-          {{ drink.drink_name }}
-          <i class="material-icons right">more_vert</i>
-        </span>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">
-          {{ drink.drink_name }}
-          <i class="material-icons right">close</i>
-        </span>
-        <p>Glass: {{ drink.drink_glass }}</p>
-        <p>Ice: {{ drink.drink_ice }}</p>
-        <p>Method: {{ drink.drink_method }}</p>
-        <p>Ingredients: {{ drink.drink_ingredients }}</p>
-        <p>Garnish: {{ drink.drink_garnish }}</p>
-        <a
-          href="{{ url_for('main.edit_drink', drink_id=drink.id) }}"
-          class="btn-small"
-          >Edit</a
-        >
-        <a href="#modal-{{ drink.id }}" class="btn-small red modal-trigger"
-          >Delete</a
-        >
-        <!-- Modal -->
-        <div id="modal-{{ drink.id }}" class="modal">
-          <div class="modal-content">
-            <h5>Are you sure?</h5>
-            <p>This action cannot be undone</p>
-          </div>
-          <div class="modal-footer">
-            <form
-              method="POST"
-              action="{{ url_for('main.delete_drink', drink_id=drink.id) }}"
-            >
-              <button type="submit" class="btn red">Delete</button>
-            </form>
-            <a href="#!" class="modal-close btn green accent-4">Cancel</a>
-          </div>
-        </div>
       </div>
     </div>
     {% endfor %}
