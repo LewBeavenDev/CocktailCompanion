@@ -65,10 +65,28 @@ def edit_drink(drink_id):
     if drink.user_id != current_user.id:
         flash('You do not have permission to edit this drink', 'danger')
         return redirect(url_for('main.drinks'))
+
     if request.method == "POST":
         drink.drink_name = request.form.get("drink_name")
+        drink.drink_glass = request.form.get("drink_glass")
+        drink.drink_ice = request.form.get("drink_ice")
+        drink.drink_method = request.form.get("drink_method")
+        drink.drink_ingredients = request.form.get("drink_ingredients")
+        drink.drink_garnish = request.form.get("drink_garnish")
+        
+        file = request.files['drink_image']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
+            
+            relative_file_path = f'uploads/{filename}'
+            drink.drink_image = relative_file_path
+        
         db.session.commit()
+        flash('Drink has been updated', 'success')
         return redirect(url_for("main.drinks"))
+
     return render_template('edit_drink.html', drink=drink)
 
 @main.route('/delete/<int:drink_id>', methods=['POST'])
