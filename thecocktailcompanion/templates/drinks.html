@@ -40,6 +40,7 @@
         <p>Method: {{ drink.drink_method }}</p>
         <p>Ingredients: {{ drink.drink_ingredients }}</p>
         <p>Garnish: {{ drink.drink_garnish }}</p>
+        {% if current_user.is_authenticated and current_user.is_admin %}
         <a
           href="{{ url_for('main.edit_drink', drink_id=drink.id) }}"
           class="btn-small"
@@ -66,6 +67,7 @@
             <a href="#!" class="modal-close btn green accent-4">Cancel</a>
           </div>
         </div>
+        {% endif %}
       </div>
     </div>
     {% endfor %} {% for drink in user_drinks %}
@@ -119,22 +121,6 @@
             <a href="#!" class="modal-close btn green accent-4">Cancel</a>
           </div>
         </div>
-        <!-- <div id="modal-{{ drink.id }}" class="modal">
-          <div class="modal-content">
-            <h4>Are you sure?</h4>
-            <p>This action cannot be undone</p>
-          </div>
-          <div class="modal-footer">
-            <a
-              href="{{ url_for('main.delete_drink', drink_id=drink.id) }}"
-              class="modal-close waves-effect waves-green btn-flat"
-              >Yes, Delete</a
-            >
-            <a href="#!" class="modal-close waves-effect waves-red btn-flat"
-              >Cancel</a
-            >
-          </div>
-        </div> -->
       </div>
     </div>
     {% endfor %}
