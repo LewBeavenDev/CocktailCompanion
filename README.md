@@ -1,5 +1,7 @@
 # [The Cocktail Companion]
 
+![The Cocktail Companion Responsive](/thecocktailcompanion/static/uploads/cocktailCompanionResponsive.png)
+
 ## Contents
 
 1.
@@ -130,7 +132,62 @@ Stock feature | Allow users to add a list of what ingredients they have to hand 
 
 # <a name="testing"></a> Testing
 
-INPUT TESTING AFTER DEPLOYMENT
+### **New user site testing:**
+
+- As a new site user, I want to be able to browse Classic Cocktail recipe's.
+
+* Upon entering the Library section all the sitea 'Classic Cocktails' are there to be viewed.
+
+- As a new site user, I want to be guided to where to log in and create my own account.
+
+* In the nav bar and footer are clear buttons to direct the user to sign up to be able to make their own drinks.
+
+- As a new site user, I want to have a clear understanding of how the site works through good UI/UX design.
+
+* This is evident throughout the site.
+
+- As a new site user, I want to easily navigate throughout the site.
+
+* This is achieved through the responsive nav bar on all screen sizes.
+
+### **Returning user site testing**
+
+- As a returning site user, I want to be able to Log in to my account.
+
+* This is achieved through the log in button on the nav bar.
+
+- As a returning site user, I want to be able to upload my own recipes.
+
+* Once logged in the user is able to upload their own recipes.
+
+- As a returning site user, I want to be able to edit and delete those recipes.
+
+* Once logged in the user is able to edit and delete their recipes.
+
+- As a returning site user, I want to be able to view my uploaded drinks without seeing the recipe so I can revise the specs within the app.
+
+* This is achieved through the card system so only the name and picture are visible until clicked on to allow easy revision.
+
+### **Performance testing:**
+
+1. Tested website responsiveness using http://www.responsinator.com/
+   1. Results: The website is responsive to all device sizes without any unnecessary x-scroll.
+1. Tested the image size to ensure no image is to large and impacting the website loading times. I used the Google Dev Tools - Network
+   1. Results: The site loading time is sub optimal. The total website loading time is 1.35s which can be improved
+1. Tested the images on all pages using Google Dev Tools - Lighthouse
+   1. Results: An issue highlighted using this tool is the image formats used. Image formats like JPEG 2000, JPEG XR, and WebP often provide better compression than PNG or JPEG, which means faster downloads and less data consumption.
+1. All HTML pages were tested using https://jigsaw.w3.org/css-validator/validator
+   1. All pages passed without any errors.
+1. Tested the CSS using http://www.css-validator.org/
+   1. The only errors found were within the Materialize minify settings so no errors with the actual code of the site.
+1. Tested the website on the Google Chrome browser Version 87.0.4280.88 (Official Build) (64-bit)
+   1. Results: The website was responsive and the elements performed in the way they were intended to
+1. Tested the website on the Microsoft Edge browser Version Version 87.0.664.66 (Official build) (64-bit)
+   1. Results: The website was responsive and the elements performed in the way they were intended to
+1. Tested the website on the Firefox browser Version 82.0.3 (64-bit)
+   1. Results: The website was responsive and the elements performed in the way they were intended to
+1. Tested the form validation worked correctly on each of the above browsers
+   1. Results: The form correctly sent when the fields were completed as they should have been and did not when the fields had not been completed
 
 # <a name="deployment"></a> Deployment
 
