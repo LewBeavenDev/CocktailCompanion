@@ -13,9 +13,13 @@
   <div class="center-align container">
     <h1>Welcome to the Cocktail Companion!</h1>
     <h5>Design, view, edit and share your creative tipples!</h5>
-    <a class="waves-effect waves-light btn pulse"
+    {% if current_user.is_authenticated %} {% else %}
+    <a
+      href="{{ url_for('main.register') }}"
+      class="waves-effect waves-light btn pulse"
       ><i class="material-icons left">local_bar</i>Sign Up</a
     >
+    {% endif %}
   </div>
 </section>
 <section id="infoSection">
