@@ -63,7 +63,7 @@ def logout():
 @login_required
 def edit_drink(drink_id):
     drink = Drink.query.get_or_404(drink_id)
-    if drink.user_id != current_user.id:
+    if drink.user_id != current_user.id and not current_user.is_admin:
         flash('You do not have permission to edit this drink', 'danger')
         return redirect(url_for('main.drinks'))
 
@@ -94,13 +94,14 @@ def edit_drink(drink_id):
 @login_required
 def delete_drink(drink_id):
     drink = Drink.query.get_or_404(drink_id)
-    if drink.user_id != current_user.id:
+    if drink.user_id != current_user.id and not current_user.is_admin:
         flash('You do not have permission to delete this drink', 'danger')
         return redirect(url_for('main.drinks'))
     db.session.delete(drink)
     db.session.commit()
     flash('Drink has been deleted', 'success')
     return redirect(url_for('main.drinks'))
+
 
 @main.route('/add_drink', methods=["GET", "POST"])
 @login_required
