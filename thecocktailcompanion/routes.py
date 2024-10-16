@@ -137,12 +137,3 @@ def add_drink():
 
     return render_template('add_drink.html')
 
-# Temporary migration route
-@main.route('/run-migrations')
-def run_migrations():
-    """Temporary route to run database migrations"""
-    try:
-        upgrade()  # This will run 'flask db upgrade'
-        return "Migrations applied successfully!", 200
-    except Exception as e:
-        return f"An error occurred: {str(e)}", 500
