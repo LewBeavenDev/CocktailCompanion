@@ -129,12 +129,19 @@ def add_drink():
                 drink_ingredients=drink_ingredients,
                 drink_garnish=drink_garnish,
                 drink_image=relative_file_path,
-                user_id=current_user.id,
-                is_global=current_user.is_admin 
+                user_id=current_user.id
             )
+
+            # Ensure the drink is marked as global if the current user is an admin
+            if current_user.is_admin:
+                new_drink.is_global = True
+                print(f"Admin is adding a global drink. is_global: {new_drink.is_global}")
+            
             db.session.add(new_drink)
             db.session.commit()
+            flash('Drink has been added!', 'success')
             return redirect(url_for('main.drinks'))
 
     return render_template('add_drink.html')
+
 
