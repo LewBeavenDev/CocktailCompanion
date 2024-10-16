@@ -137,17 +137,3 @@ def add_drink():
 
     return render_template('add_drink.html')
 
-@main.route('/create-admin')
-def create_admin():
-    admin_user = User.query.filter_by(username="admin").first()
-    if not admin_user:
-        admin_user = User(
-            username="admin",
-            password=generate_password_hash("password", method='pbkdf2:sha256'),
-            is_admin=True
-        )
-        db.session.add(admin_user)
-        db.session.commit()
-        return "Admin user created.", 200
-    else:
-        return "Admin user already exists.", 200
