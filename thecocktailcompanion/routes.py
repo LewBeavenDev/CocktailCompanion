@@ -6,6 +6,7 @@ from thecocktailcompanion.models import User, Drink
 from thecocktailcompanion.forms import RegistrationForm, LoginForm
 from werkzeug.utils import secure_filename
 import os
+from flask_migrate import upgrade
 
 main = Blueprint('main', __name__)
 
@@ -118,7 +119,6 @@ def add_drink():
             file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
             file.save(file_path)
 
-            
             relative_file_path = f'uploads/{filename}'
             new_drink = Drink(
                 drink_name=drink_name,
@@ -136,3 +136,13 @@ def add_drink():
             return redirect(url_for('main.drinks'))
 
     return render_template('add_drink.html')
+
+# Temporary migration route
+@main.route('/run-migrations')
+def run_migrations():
+    """Temporary route to run database migrations"""
+    try:
+        upgrade()  # This will run 'flask db upgrade'
+        return "Migrations applied successfully!", 200
+    except Exception as e:
+        return f"An error occurred: {str(e)}", 500
