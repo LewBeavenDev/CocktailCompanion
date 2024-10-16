@@ -19,13 +19,14 @@ def create_app():
 
     # Check if in development or production mode
     if os.environ.get("DEVELOPMENT") == "True":
-        app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")  # Dev DB URL
+        # Use development database URL or fallback to SQLite
+        app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL", "sqlite:///app.db")
     else:
-        # Get the database URL from the environment
+        # Get the database URL from the environment for production
         uri = os.environ.get("DATABASE_URL", "")  # Default to an empty string if not set
         if uri.startswith("postgres://"):
             uri = uri.replace("postgres://", "postgresql://", 1)
-        app.config["SQLALCHEMY_DATABASE_URI"] = uri
+        app.config["SQLALCHEMY_DATABASE_URI"] = uri or "sqlite:///app.db"  # Fallback to SQLite in production if DATABASE_URL is not set
 
     # Initialize extensions
     db.init_app(app)
@@ -45,3 +46,4 @@ def create_app():
     app.register_blueprint(routes.main)
 
     return app
+
