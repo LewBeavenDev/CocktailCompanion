@@ -1,1 +1,1 @@
-web: gunicorn thecocktailcompanion.run:app
+web: gunicorn run:app

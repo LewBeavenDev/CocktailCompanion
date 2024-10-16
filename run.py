@@ -1,7 +1,7 @@
+import os
 from thecocktailcompanion import create_app, db
 from thecocktailcompanion.models import User
 from werkzeug.security import generate_password_hash
-import os
 
 app = create_app()
 
